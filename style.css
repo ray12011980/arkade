@@ -1,0 +1,235 @@
+/* ===============================variable settings */
+:root {
+  --ff: Verdana, Geneva, Tahoma, sans-serif;
+  --fs-sm: 12px;
+  --fs-reg: 16px;
+  --fs-big: ;
+
+  --bg-clr-light: rgb(97, 97, 97);
+  --bg-clr-dark: rgb(29, 29, 29);
+  --bg-clr-acc: rgb(36, 196, 236);
+
+  --txt-clr-pri: rgb(61, 61, 61);
+  --txt-clr-sec: rgb(32, 32, 32);
+  --txt-clr-dark: rgb(0, 110, 255);
+  --txt-clr-light: rgb(116, 176, 255);
+}
+/* ===============================variable settings */
+
+/* ===============================typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+}
+/* ===============================typography */
+
+/* ===============================initial settings */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  background: var(--bg-clr-dark);
+  color: var(--txt-clr-pri);
+  font-family: var(--ff);
+  font-size: var(--fs-reg);
+  overflow-x: hidden;
+}
+
+/* ===============================initial settings */
+
+/* ===============================header with nav */
+.main-header {
+  background: var(--bg-clr-acc);
+  position: relative;
+}
+
+.header-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  text-transform: uppercase;
+  padding: 0.8em 0;
+}
+
+.logo span {
+  opacity: 0.6;
+}
+
+.main-nav {
+  list-style: none;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-nav li {
+  margin: auto 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: var(--fs-sm);
+  font-weight: bold;
+  color: var(--txt-clr-pri);
+}
+
+.main-nav a:hover {
+  color: var(--txt-clr-sec);
+}
+
+.main-nav a::before {
+  content: "";
+  display: block;
+  height: 0.4em;
+  background: var(--bg-clr-dark);
+
+  width: 0;
+  opacity: 0;
+  transition: all ease-in-out 0.3s;
+}
+
+.main-nav a:hover::before {
+  width: 100%;
+  opacity: 1;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    cursor: pointer;
+  }
+
+  .bar {
+    /* width: 1.5em;
+    height: 0.15em; */
+    width: 25px;
+    height: 3px;
+    background: var(--txt-clr-pri);
+
+    transition: transform 0.3s ease-in;
+  }
+
+  .bar + .bar {
+    margin-top: 3px;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-clr-acc);
+
+    flex-direction: column;
+    /*==========================burger effect group*/
+    transform: translateX(80%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+    overflow-x: hidden;
+  }
+
+  /*==========================burger effect group*/
+  .nav-active {
+    transform: translateX(0%);
+    /* left: 0%; */
+    opacity: 1;
+  }
+  /* ========================================= for burger effect */
+  .toggle .top-bar {
+    transform: rotate(-45deg) translate(-5px, 5px);
+  }
+  .toggle .middle-bar {
+    opacity: 0;
+  }
+  .toggle .bottom-bar {
+    transform: rotate(45deg) translate(-3px, -3px);
+  }
+
+  .main-nav li {
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+    height: 100%;
+  }
+
+  .main-nav a {
+    font-size: var(--fs-reg);
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+  }
+
+  .main-nav a:hover {
+    background: rgb(0, 0, 0, 0.2);
+  }
+
+  .main-nav a::before {
+    display: none;
+  }
+}
+/* ===============================header with nav */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* ********************************** ANIMATION SECTION */
+/* ********************************** ANIMATION SECTION */
+/* fade-in */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+.fade-in.appear {
+  opacity: 1;
+}
+
+/* slide-in */
+.from-left {
+  transform: translateX(50%);
+}
+
+.from-bottom {
+  transform: translateY(50%);
+}
+
+.from-left,
+.from-bottom {
+  transition: opacity 1s ease-in, transform 1s ease-in;
+  opacity: 0;
+}
+
+.from-left.appear {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.from-bottom.appear {
+  transform: translateY(0);
+  opacity: 1;
+}
